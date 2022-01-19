@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+:root {
+  --color-neutral: #12191b;
+  --color-session: #238a2c;
+  --color-break: #10748a;
+  --neutralShadow: 0px 0px 45px 0px var(--color-neutral);
+  --sessionShadow: 0px 0px 45px 0px var(--color-session);
+  --breakShadow: 0px 0px 45px 0px var(--color-break);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #f1f2fb;
+}
+
+.mainContainer {
+  display: flex;
+  margin: 15vh auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  max-width: min(30rem, 80%);
+  min-width: 15rem;
+  padding: 2rem;
+  border-radius: 5%;
+  box-shadow: var(--neutralShadow);
+  -webkit-box-shadow: var(--neutralShadow);
+  -moz-box-shadow: var(--neutralShadow);
+  font-family: monospace;
+  font-size: 1.35rem;
+  font-weight: 600;
+  transition: all 1s ease;
+}
+
+.controls {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btns {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: rows;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sessionContainer {
+  display: flex;
+  background: rgba(0, 0, 0, 0);
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.timeLabel {
+  font-size: 2.5rem;
+  margin: -0.7rem auto 0.75rem auto;
+  color: rgb(var(--color-neutral));
+  transition: all 1s ease;
+}
+
+.stateTitle {
+  color: rgb(var(--color-neutral));
+  transition: all 1s ease;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 2px solid var(--color-neutral);
+  text-align: center;
+  border-radius: 25%;
+  background: #f1f2fb;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 0px -2px var(--color-neutral);
+}
+
+#reset:after {
+  content: " \21BA";
+}
+
+@media only screen and (max-width: 515px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .mainContainer {
+    margin-left: 8%;
+  }
+}
