@@ -22,6 +22,8 @@ const accurateInterval = function (fn, time) {
   };
 };
 
+//Info that will be displayed in different states
+//Info que sera mostrada en diferentes estados
 const items = [
   {
     title: "Break",
@@ -68,6 +70,8 @@ class Presentational extends React.Component {
     this.formatTimeText = this.formatTimeText.bind(this);
   }
 
+  //Function that recieves an integer value and returns a string representing the time in minutes and seconds
+  // Funcion que recibe un valor entero y regresa una string representando el tiempo en minutos y segundos
   formatTimeText(time) {
     let minutes = "";
     let seconds = "";
@@ -85,7 +89,12 @@ class Presentational extends React.Component {
     return minutes + ":" + seconds;
   }
 
-  //Add functionality when timer reaches 0
+  //Function to handle countdown behaviour
+  // if countdown is higher than 0 it updates the component timeleft status
+  // else it plays a sound and changes the status and countdown and starts the countdown again
+  //Funcion que maneja el comportamiento del tiempo restante
+  // si el tiempo restante es mayor a 0 actualiza el estado del tiempo restante del componente
+  // sino reproduce un sonido y cambia el estatus y el tiempo restante y comienza a contar de nuevo
   decrementTimer() {
     if (this.state.timer > 0) {
       this.setState({
@@ -115,6 +124,12 @@ class Presentational extends React.Component {
       }
     }
   }
+
+  //Function that updates the information shown to the user and the running state of the component
+  //If the component is running it stops it or if it wasn't running it starts it with the current session state and changes the user interface accordingly
+  //funcion que actualiza la informacion mostrada al usuario y el estado de ejecucion del componente
+  //Si el componente se esta ejecutando lo detiene o en caso contrario comienza la eecucion del componente con el estado de sesion actual y cambia la
+  //interfaz del usuario de acuerdo al estado actual
 
   beginCountDown() {
     if (this.state.isRunning === 1) {
@@ -170,6 +185,9 @@ class Presentational extends React.Component {
     }
   }
 
+  //Function that resets everything to its initial state
+  //Funcion que reinicia todo a su estado inicial
+
   resetStates() {
     document.getElementById("start_stop").innerHTML = "Start ▷";
     document.querySelector(".mainContainer").style.boxShadow = getComputedStyle(
@@ -197,6 +215,8 @@ class Presentational extends React.Component {
     this.endAudio.currentTime = 0;
   }
 
+  //Function to update the break time
+  //Funcion para actualizar el tiempo de break
   updateBreakTime(e) {
     if (this.state.isRunning === 1) {
       return;
@@ -216,6 +236,8 @@ class Presentational extends React.Component {
     }
   }
 
+  //Function to update the session time
+  //Funcion para actualizar el tiempo de sesion
   updateSessionTime(e) {
     if (this.state.isRunning === 1) {
       return;
